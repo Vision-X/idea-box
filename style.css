@@ -17,18 +17,38 @@ hr color:#D1D3D4*/
 
 .idea-input {
   background-color: #e5f3f2;
-  height: 20vh;
-  margin: 0 20% 0 20%;
-  padding-top: 10%;
+  height: 40vh;
+  /*padding: 10%;*/
   text-align: center;
+}
+input {
+  height: 40px;
+  margin-top: 12px;
+  width: 50%;
+}
+button {
+  width: 50%;
+  height: 35px;
+  margin-top: 12px;
+  background-color: #00A79D;
+  color: #ffffff;
+  border: none;
+}
 
+#idea-box-wrappper {
+  margin: 0 20% 0 20%;
+}
+
+.idea-stage {
+  padding: 0 20% 0 20%;
 }
 
 h1 {
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
   color: #00A79D;
-  font-size: 40px;
+  font-size: 80px;
+  padding-top: 20px;
 }
 
 span {
