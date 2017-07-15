@@ -15,6 +15,15 @@ hr color:#D1D3D4*/
   box-sizing: border-box;
 }
 
+.idea-input {
+  background-color: #e5f3f2;
+  height: 20vh;
+  margin: 0 20% 0 20%;
+  padding-top: 10%;
+  text-align: center;
+
+}
+
 h1 {
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
