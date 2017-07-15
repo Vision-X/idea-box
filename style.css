@@ -1,3 +1,27 @@
-idea-input background color: #E5F3F2
+/*idea-input background color: #E5F3F2
 h1 "idea" font color: #00A79D
-h1 "idea" font color: #6D6E71
+h1 "box" font color: #6D6E71
+save button color:#00A79D
+save button text color: #FFFFFF
+save button on hover color: #045E55
+idea-title font color: #6D6E71
+idea-content font color: #939598
+hr color:#D1D3D4*/
+/*header text: roboto*/
+/*body text: open sans*/
+
+* {
+  margin: auto 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  color: #00A79D;
+  font-size: 40px;
+}
+
+span {
+  color: #6D6E71;
+}
