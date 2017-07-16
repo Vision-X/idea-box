@@ -78,7 +78,8 @@ input::placeholder {
 
 /*///// second section stylinng /////*/
 
-.idea-stage {
+.idea-stage,
+#search-form {
   margin: 0 auto;
   width: 60%;
 }
