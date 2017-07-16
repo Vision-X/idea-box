@@ -15,21 +15,28 @@ hr color:#D1D3D4*/
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .idea-input {
   background-color: #e5f3f2;
-  height: 38vh;
-  /*padding: 10%;*/
+  height: 330px;
   text-align: center;
 }
 
 #idea-box-wrappper {
-  margin: 0 25% 0 25%;
+  margin: 0 20% 0 20%;
 }
 
-h1 {
+h1,
+h2 {
+  color: #00A79D;
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
-  color: #00A79D;
+}
+
+.idea-input h1 {
   font-size: 70px;
   padding-top: 20px;
 }
@@ -39,36 +46,37 @@ span {
 }
 
 input {
+  border: 2px solid #d1d3d4;
   font-size: 26px;
   height: 40px;
   margin-top: 20px;
-  border: 2px solid #d1d3d4;
 }
 
 .idea-input input {
-  width: 50%;
+  width: 60%;
 }
 
 input::placeholder {
-  padding-left: 5px;
   color: #939598;
+  padding-left: 5px;
 }
 
-button {
-  width: 50%;
+.idea-input button {
+  background-color: #00A79D;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
   height: 48px;
   margin-top: 20px;
-  background-color: #00A79D;
-  color: #ffffff;
-  border: none;
-  font-size: 24px;
+  width: 60%;
 }
 
 
 /*///// second section stylinng /////*/
 
 .idea-stage {
-  padding: 0 25% 0 25%;
+  margin: 0 auto;
+  width: 60%;
 }
 
 .search {
@@ -82,4 +90,76 @@ button {
 
 article {
   margin-top: 20px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+h2 {
+  color: #6D6E71;
+  display: inline-block;
+
+}
+
+a {
+  display: inline-block;
+}
+
+.idea-stage button {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  border: none;
+  height: 24px;
+  width: 24px;
+}
+
+#delete-btn {
+  background: url("FEE-ideabox-icon-assets/delete.svg");
+  float: right;
+}
+
+#delete-btn:hover {
+  background: url('FEE-ideabox-icon-assets/delete-hover.svg');
+}
+
+#upvote {
+  background: url('FEE-ideabox-icon-assets/upvote.svg');
+}
+
+#upvote:hover {
+  background: url('FEE-ideabox-icon-assets/upvote-hover.svg');
+}
+
+#downvote {
+  background: url('FEE-ideabox-icon-assets/downvote.svg');
+  margin-left: 10px;
+}
+
+#downvote:hover {
+  background: url('FEE-ideabox-icon-assets/downvote-hover.svg');
+}
+
+
+p {
+  color: #939598;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+p#idea-content {
+  width: 100%;
+}
+
+p#idea-quality {
+  color: #6d6e71;
+  margin-left: 10px;
+}
+
+hr {
+  color: #939598;
+}
+
+#btn-quality-wrapper {
+  height: 60px;
+  margin-top: 10px;
 }
