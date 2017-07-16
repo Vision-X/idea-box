@@ -21,12 +21,34 @@ hr color:#D1D3D4*/
   /*padding: 10%;*/
   text-align: center;
 }
+
+#idea-box-wrappper {
+  margin: 0 25% 0 25%;
+}
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  color: #00A79D;
+  font-size: 70px;
+  padding-top: 20px;
+}
+
+span {
+  color: #6D6E71;
+}
+
 input {
   font-size: 26px;
   height: 40px;
   margin-top: 20px;
+  border: 2px solid #d1d3d4;
+}
+
+.idea-input input {
   width: 50%;
 }
+
 input::placeholder {
   padding-left: 5px;
   color: #939598;
@@ -42,23 +64,22 @@ button {
   font-size: 24px;
 }
 
-#idea-box-wrappper {
-  margin: 0 25% 0 25%;
-}
+
+/*///// second section stylinng /////*/
 
 .idea-stage {
   padding: 0 25% 0 25%;
 }
 
-h1 {
-  font-family: 'Roboto Slab', serif;
-  font-weight: 700;
-  color: #00A79D;
-  font-size: 80px;
-  margin-bottom: 20px;
-  padding-top: 20px;
+.search {
+  width: 100%;
 }
 
-span {
-  color: #6D6E71;
+.search::placeholder {
+  color: #939598;
+  padding-left: 5px;
+}
+
+article {
+  margin-top: 20px;
 }
