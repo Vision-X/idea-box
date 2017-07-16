@@ -64,11 +64,15 @@ input::placeholder {
 .idea-input button {
   background-color: #00A79D;
   border: none;
-  color: #ffffff;
+  color: #fff;
   font-size: 24px;
   height: 48px;
   margin-top: 20px;
   width: 60%;
+}
+
+.idea-input button:hover {
+  background-color: #045e55;
 }
 
 
@@ -156,7 +160,7 @@ p#idea-quality {
 }
 
 hr {
-  color: #939598;
+  color: #D1D3D4;
 }
 
 #btn-quality-wrapper {
