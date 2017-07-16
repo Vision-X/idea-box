@@ -17,30 +17,37 @@ hr color:#D1D3D4*/
 
 .idea-input {
   background-color: #e5f3f2;
-  height: 40vh;
+  height: 38vh;
   /*padding: 10%;*/
   text-align: center;
 }
 input {
+  font-size: 26px;
   height: 40px;
-  margin-top: 12px;
+  margin-top: 20px;
   width: 50%;
 }
+input::placeholder {
+  padding-left: 5px;
+  color: #939598;
+}
+
 button {
   width: 50%;
-  height: 35px;
-  margin-top: 12px;
+  height: 48px;
+  margin-top: 20px;
   background-color: #00A79D;
   color: #ffffff;
   border: none;
+  font-size: 24px;
 }
 
 #idea-box-wrappper {
-  margin: 0 20% 0 20%;
+  margin: 0 25% 0 25%;
 }
 
 .idea-stage {
-  padding: 0 20% 0 20%;
+  padding: 0 25% 0 25%;
 }
 
 h1 {
@@ -48,6 +55,7 @@ h1 {
   font-weight: 700;
   color: #00A79D;
   font-size: 80px;
+  margin-bottom: 20px;
   padding-top: 20px;
 }
 
