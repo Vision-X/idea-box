@@ -2,7 +2,7 @@
 
 $("#save-btn").on('click', function() {
   prependIdea();
-});
+})
 
 
 
@@ -20,7 +20,7 @@ function prependIdea() {
         <div id="btn-quality-wrapper">
           <button id="upvote"></button>
           <button id="downvote"></button>
-          <p id="idea-quality">quality: chron</p>
+          <p id="idea-quality">quality:</p>
         </div>
         <hr>
       </article>`;
