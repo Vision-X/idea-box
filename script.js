@@ -6,6 +6,7 @@
 
 $("#save-btn").on('click', function() {
   prependIdea();
+  clearFields();
 })
 
 $(".idea-stage").on('click', '#delete-btn', function() {
@@ -22,6 +23,7 @@ $(".idea-stage").on('click', '#upvote', function() {
 $(".idea-stage").on('click', '#downvote', function() {
   //handle the events for when upvote is clicked
   console.log("downvote was clicked");
+  downVote();
 })
 
 
@@ -65,6 +67,15 @@ function upVote() {
     }
 }
 
+function downVote() {
+  var $currentQuality = $('#current-quality').html();
+  if ($currentQuality === "genius") {
+    console.log($currentQuality);
+    $('#current-quality').html("plausible");
+  } else if ($currentQuality === "plausible") {
+    $('#current-quality').html("swill");
+  }
+}
 
 
 // function checkInputs() {
