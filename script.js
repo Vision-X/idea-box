@@ -16,6 +16,7 @@ $(".idea-stage").on('click', '#delete-btn', function() {
 $(".idea-stage").on('click', '#upvote', function() {
   //handle the events for when upvote is clicked
   console.log("upvote was clicked");
+  upVote();
 })
 
 $(".idea-stage").on('click', '#downvote', function() {
@@ -38,7 +39,7 @@ function prependIdea() {
         <div id="btn-quality-wrapper">
           <button id="upvote"></button>
           <button id="downvote"></button>
-          <p id="idea-quality">quality: <span id="current-quality"></span></p>
+          <p id="idea-quality">quality: <span id="current-quality">swill</span></p>
         </div>
         <hr>
       </article>`;
@@ -54,8 +55,15 @@ function clearFields() {
   $("#input-content").val('');
 }
 
-
-
+function upVote() {
+  var $currentQuality = $('#current-quality').html();
+  if ($currentQuality === "swill") {
+      console.log($currentQuality);
+      $('#current-quality').html("plausible");
+    } else if ($currentQuality === "plausible") {
+      $('#current-quality').html("genius");
+    }
+}
 
 
 
