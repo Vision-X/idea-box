@@ -2,11 +2,16 @@
 
 ////////EVENT LISTENER SECTION ///////
 
-// $("#input-title", "#input-content").on('input', checkInputs);
+$("#input-title, #input-content").on('keyup', function() {
+  console.log("yooooooooo");
+  checkInputs();
+
+})
 
 $("#save-btn").on('click', function() {
   prependIdea();
   clearFields();
+  checkInputs();
 })
 
 $(".idea-stage").on('click', '#delete-btn', function() {
@@ -78,14 +83,14 @@ function downVote() {
 }
 
 
-// function checkInputs() {
-//   var $title = $("#input-title").val();
-//   var $content = $("#input-content").val();
-//   if ($title === "" || $content === "") {
-//     console.log("enter btn disabled!");
-//     $("#save-btn").attr("disabled", true);
-//   } else {
-//     console.log("enter btn is a GO!");
-//     $("#save-btn").attr("disabled", false);
-//   }
-// }
+function checkInputs() {
+  var $title = $("#input-title").val();
+  var $content = $("#input-content").val();
+  if ($title === "" || $content === "") {
+    console.log("enter btn disabled!");
+    $("#save-btn").attr("disabled", true);
+  } else {
+    console.log("enter btn is a GO!");
+    $("#save-btn").attr("disabled", false);
+  }
+}
