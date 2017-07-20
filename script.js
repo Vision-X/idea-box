@@ -45,18 +45,14 @@ function Idea($title, $content) {
 function createObject() {
   var $title = $("#input-title").val();
   var $content = $("#input-content").val();
-  // var $id = id;
-  // var $qual = 'swill';
   return new Idea($title, $content);
 }
-
 
 function prependIdea(Obj) {
   console.log(Obj);
   var injected = injection(Obj);
   $(".idea-stage").prepend(injected);
   saveToArray(Obj);
-  clearFields();
 }
 
 function injection(Obj) {
@@ -112,10 +108,7 @@ function checkInputs() {
 }
 
 
-
-
 //start JSON torment and LOLs here B=====D ~ ~ ~ //
-
 
 
 function saveToArray(Obj) {
