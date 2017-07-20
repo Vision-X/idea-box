@@ -1,21 +1,22 @@
-// checkInputs();
+var myIdeaArray = [];
+
+getFromLocalStorage();
 
 ////////EVENT LISTENER SECTION ///////
 
 $("#input-title, #input-content").on('keyup', function() {
-  console.log("yooooooooo");
   checkInputs();
 
 })
 
 $("#save-btn").on('click', function() {
-  prependIdea();
+  prependIdea(createObject());
+  setToLocalStorage();
   clearFields();
   checkInputs();
 })
 
 $(".idea-stage").on('click', '#delete-btn', function() {
-  console.log('the delete was clicked');
   $(this).parent().remove();
 })
 
@@ -34,27 +35,43 @@ $(".idea-stage").on('click', '#downvote', function() {
 
 
 /////// FUNCTION SECTION /////////
+function Idea($title, $content) {
+  this.$id = Date.now(),
+  this.$title = $title,
+  this.$content = $content,
+  this.$quality = 'swill';
+}
 
-function prependIdea() {
+function createObject() {
   var $title = $("#input-title").val();
   var $content = $("#input-content").val();
-  var $inject =
-        `<article class="card">
-        <h2 id="idea-title">${$title}</h2>
+  // var $id = id;
+  // var $qual = 'swill';
+  return new Idea($title, $content);
+}
+
+
+function prependIdea(Obj) {
+  console.log(Obj);
+  var injected = injection(Obj);
+  $(".idea-stage").prepend(injected);
+  saveToArray(Obj);
+  clearFields();
+}
+
+function injection(Obj) {
+
+  return `<article class="card" id=${Obj.$id}>
+        <h2 id="input-title">${Obj.$title}</h2>
         <button id="delete-btn"></button>
-        <p id="idea-content">${$content}</p>
+        <p id="idea-content">${Obj.$content}</p>
         <div id="btn-quality-wrapper">
           <button id="upvote"></button>
           <button id="downvote"></button>
-          <p id="idea-quality">quality: <span id="current-quality">swill</span></p>
+          <p id="idea-quality">quality: <span id="current-quality">${Obj.$quality}</span></p>
         </div>
         <hr>
       </article>`;
-  $(".idea-stage").prepend($inject);
-  clearFields();
-  // $("#input-title").val();
-  // $("#input-content").val();
-
 }
 
 function clearFields() {
@@ -82,7 +99,6 @@ function downVote() {
   }
 }
 
-
 function checkInputs() {
   var $title = $("#input-title").val();
   var $content = $("#input-content").val();
@@ -93,4 +109,36 @@ function checkInputs() {
     console.log("enter btn is a GO!");
     $("#save-btn").attr("disabled", false);
   }
+}
+
+
+
+
+//start JSON torment and LOLs here B=====D ~ ~ ~ //
+
+
+
+function saveToArray(Obj) {
+  myIdeaArray.push(Obj);
+}
+
+function setToLocalStorage() {
+  var newIdea = myIdeaArray;
+  localStorage.setItem("lolArray", JSON.stringify(newIdea));
+  console.log(newIdea);
+}
+
+function getFromLocalStorage() {
+  var arrayFromJSON = JSON.parse(localStorage.getItem("lolArray"));
+  populatePageFromLocalStorage(arrayFromJSON);
+}
+
+function populatePageFromLocalStorage(arrayFromJSON) {
+  var parsedObjectArray = arrayFromJSON;
+  console.log(parsedObjectArray);
+  if (parsedObjectArray !== null) {
+    for (var i=0; i < parsedObjectArray.length; i++) {
+    prependIdea(parsedObjectArray[i]);
+  }
+}
 }
