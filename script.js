@@ -97,8 +97,8 @@ function upVote(e) {
     }
 
   var id = $(e.target).parents('article').attr('id');
-  myIdeaArray.forEach(function(idea, index) {
-    if (id == idea.$id) {
+  myIdeaArray.forEach(function(Obj, index) {
+    if (id == Obj.$id) {
       myIdeaArray[index].$quality = $newQual.text();
     }
   });
@@ -117,12 +117,12 @@ function downVote(e) {
     }
 
   var id = $(e.target).parents('article').attr('id');
-  myIdeaArray.forEach(function(idea, index) {
-    if (id == idea.$id) {
+  myIdeaArray.forEach(function(Obj, index) {
+    if (id == Obj.$id) {
       myIdeaArray[index].$quality = $newQual.text();
     }
   });
- setToLocalStorage();
+  setToLocalStorage();
 }
 
 function checkInputs() {
