@@ -45,6 +45,7 @@ $(".search").on('keyup', function() {
 });
 
 /////// FUNCTION SECTION /////////
+
 function Idea($title, $content) {
   this.$id = Date.now(),
   this.$title = $title,
@@ -133,8 +134,6 @@ function checkInputs() {
     $("#save-btn").attr("disabled", false);
   }
 }
-
-//start JSON torment and LOLs here B=====D ~ ~ ~ //
 
 function saveToArray(Obj) {
   myIdeaArray.push(Obj);
