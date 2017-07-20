@@ -1,6 +1,6 @@
-// checkInputs();
-
 var myIdeaArray = [];
+
+getFromLocalStorage();
 
 ////////EVENT LISTENER SECTION ///////
 
@@ -10,9 +10,8 @@ $("#input-title, #input-content").on('keyup', function() {
 })
 
 $("#save-btn").on('click', function() {
-  prependIdea();
+  prependIdea(createObject());
   setToLocalStorage();
-  // saveToArray();
   clearFields();
   checkInputs();
 })
@@ -36,44 +35,43 @@ $(".idea-stage").on('click', '#downvote', function() {
 
 
 /////// FUNCTION SECTION /////////
-function Idea($title, $content, $id) {
-  this.$id = Date.now() || $id,
-  console.log("this id -1 is : " + $id)
+function Idea($title, $content) {
+  this.$id = Date.now(),
   this.$title = $title,
   this.$content = $content,
   this.$quality = 'swill';
 }
 
+function createObject() {
+  var $title = $("#input-title").val();
+  var $content = $("#input-content").val();
+  // var $id = id;
+  // var $qual = 'swill';
+  return new Idea($title, $content);
+}
 
-function prependIdea(title, content, id, qual) {
-  var $title = $("#input-title").val() || title;
-  var $content = $("#input-content").val() || content;
-  // var updateIdea = new Idea($title, $content, $id);
-  var $id = id;
-  console.log("this id 1 is : " + $id);
-  var $qual = 'swill';
-  var injected = injection($title, $content, $id, $qual);
+
+function prependIdea(Obj) {
+  console.log(Obj);
+  var injected = injection(Obj);
   $(".idea-stage").prepend(injected);
-  // myIdeaArray.push(updateIdea);
-  saveToArray();
-  // console.log(updateIdea);
+  saveToArray(Obj);
   clearFields();
 }
 
-function injection($title, $content, $id, $qual) {
-  var $inject =
-        `<article class="card" id=${$id}>
-        <h2 id="input-title">${$title}</h2>
+function injection(Obj) {
+
+  return `<article class="card" id=${Obj.$id}>
+        <h2 id="input-title">${Obj.$title}</h2>
         <button id="delete-btn"></button>
-        <p id="idea-content">${$content}</p>
+        <p id="idea-content">${Obj.$content}</p>
         <div id="btn-quality-wrapper">
           <button id="upvote"></button>
           <button id="downvote"></button>
-          <p id="idea-quality">quality: <span id="current-quality">${$qual}</span></p>
+          <p id="idea-quality">quality: <span id="current-quality">${Obj.$quality}</span></p>
         </div>
         <hr>
       </article>`;
-  return $inject;
 }
 
 function clearFields() {
@@ -101,7 +99,6 @@ function downVote() {
   }
 }
 
-
 function checkInputs() {
   var $title = $("#input-title").val();
   var $content = $("#input-content").val();
@@ -114,30 +111,34 @@ function checkInputs() {
   }
 }
 
+
+
+
 //start JSON torment and LOLs here B=====D ~ ~ ~ //
 
 
 
-
-function saveToArray($id) {
-  var myAry = myIdeaArray;
-  var id = $id;
-  console.log("this id is: " + $id);
-  var $title = $("#input-title").val();
-  console.log("this title is: " + $title);
-  var $content = $("#input-content").val();
-  console.log("this content is: " + $content);
-  var updateIdea = new Idea($title, $content, $id);
-  console.log("Idea contructor function is : " + Idea);
-  myAry.push(updateIdea);
+function saveToArray(Obj) {
+  myIdeaArray.push(Obj);
 }
 
-function setToLocalStorage(ideaArray) {
+function setToLocalStorage() {
   var newIdea = myIdeaArray;
   localStorage.setItem("lolArray", JSON.stringify(newIdea));
   console.log(newIdea);
 }
 
 function getFromLocalStorage() {
+  var arrayFromJSON = JSON.parse(localStorage.getItem("lolArray"));
+  populatePageFromLocalStorage(arrayFromJSON);
+}
 
+function populatePageFromLocalStorage(arrayFromJSON) {
+  var parsedObjectArray = arrayFromJSON;
+  console.log(parsedObjectArray);
+  if (parsedObjectArray !== null) {
+    for (var i=0; i < parsedObjectArray.length; i++) {
+    prependIdea(parsedObjectArray[i]);
+  }
+}
 }
